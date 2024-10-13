@@ -3,7 +3,7 @@ module github.com/akramarenkov/seq
 go 1.23.1
 
 require (
-	github.com/akramarenkov/safe v0.10.1
+	github.com/akramarenkov/safe v0.10.2
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/exp v0.0.0-20230626212559-97b1e661b5df
 )
