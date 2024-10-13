@@ -52,7 +52,7 @@ func BenchmarkIntReference(b *testing.B) {
 	for range b.N {
 		sequence = make([]int, len(expected))
 
-		for id := range len(expected) {
+		for id := range expected {
 			sequence[id] = id
 		}
 	}
