@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Library that allows you to generate a sequence of something
+Library that allows you to create a sequence of something
 
 ## Usage
 

@@ -5,7 +5,7 @@ import (
 	"golang.org/x/exp/constraints"
 )
 
-// Generates a slice of a sequence of integers from begin to end with the specified step.
+// Creates a slice of a sequence of integers from begin to end with the specified step.
 //
 // If begin is greater than end, the returned sequence will be decreasing, otherwise it
 // will be increasing.
