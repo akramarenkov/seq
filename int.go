@@ -26,7 +26,7 @@ func Int[Type constraints.Integer](begin Type, end Type, steps ...Type) []Type {
 
 	sequence := make([]Type, safe.IterStepSize(begin, end, step))
 
-	for id, number := range safe.IterStep2(begin, end, step) {
+	for id, number := range safe.IterStep(begin, end, step) {
 		sequence[id] = number
 	}
 
