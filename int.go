@@ -17,7 +17,7 @@ import (
 // returned.
 //
 // If a zero or negative step is specified, the function will panic.
-func Int[Type constraints.Integer](begin Type, end Type, steps ...Type) []Type {
+func Int[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
 	step := Type(1)
 
 	if len(steps) != 0 {
