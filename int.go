@@ -68,7 +68,7 @@ func intSize[Type constraints.Integer](begin, end, step Type) uint64 {
 }
 
 // Creates a slice of a linear sequence of integers from begin to end inclusive with the
-// specified step.
+// specified step. Like [Int] but panics on error.
 //
 // If begin is greater than end, the returned sequence will be decreasing, otherwise it
 // will be increasing.
@@ -77,7 +77,7 @@ func intSize[Type constraints.Integer](begin, end, step Type) uint64 {
 // specified, the first one will be used.
 //
 // If a zero or negative step is specified, the function will panic.
-func IntP[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
+func IntSure[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
 	sequence, err := Int(begin, end, steps...)
 	if err != nil {
 		panic(err)
