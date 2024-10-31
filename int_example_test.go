@@ -7,7 +7,7 @@ import (
 )
 
 func ExampleInt() {
-	fmt.Println(seq.Int(1, 8, 3))
+	fmt.Println(seq.IntP(1, 8, 3))
 	// Output:
-	// [1 4 7]
+	// [1 4 7 8]
 }
