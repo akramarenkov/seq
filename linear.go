@@ -16,7 +16,7 @@ import (
 // specified, the first one will be used.
 //
 // If a zero or negative step is specified, an error is returned.
-func Int[Type constraints.Integer](begin, end Type, steps ...Type) ([]Type, error) {
+func Linear[Type constraints.Integer](begin, end Type, steps ...Type) ([]Type, error) {
 	step := Type(1)
 
 	if len(steps) != 0 {
@@ -31,7 +31,7 @@ func Int[Type constraints.Integer](begin, end Type, steps ...Type) ([]Type, erro
 		return nil, ErrStepZero
 	}
 
-	sequence := make([]Type, intSize(begin, end, step))
+	sequence := make([]Type, linearSize(begin, end, step))
 
 	for id, number := range safe.Step(begin, end, step) {
 		sequence[id] = number
@@ -45,7 +45,7 @@ func Int[Type constraints.Integer](begin, end Type, steps ...Type) ([]Type, erro
 	return sequence, nil
 }
 
-func intSize[Type constraints.Integer](begin, end, step Type) uint64 {
+func linearSize[Type constraints.Integer](begin, end, step Type) uint64 {
 	distance := safe.Dist(begin, end)
 
 	size := distance / uint64(step)
@@ -68,7 +68,7 @@ func intSize[Type constraints.Integer](begin, end, step Type) uint64 {
 }
 
 // Creates a slice of a linear sequence of integers from begin to end inclusive with the
-// specified step. Like [Int] but panics on error.
+// specified step. Like [Linear] but panics on error.
 //
 // If begin is greater than end, the returned sequence will be decreasing, otherwise it
 // will be increasing.
@@ -77,8 +77,8 @@ func intSize[Type constraints.Integer](begin, end, step Type) uint64 {
 // specified, the first one will be used.
 //
 // If a zero or negative step is specified, the function will panic.
-func IntSure[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
-	sequence, err := Int(begin, end, steps...)
+func LinearSure[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
+	sequence, err := Linear(begin, end, steps...)
 	if err != nil {
 		panic(err)
 	}

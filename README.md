@@ -22,7 +22,7 @@ import (
 )
 
 func main() {
-    sequence, err := seq.Int(1, 8, 3)
+    sequence, err := seq.Linear(1, 8, 3)
     fmt.Println(err)
     fmt.Println(sequence)
     // Output:
