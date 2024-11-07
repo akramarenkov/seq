@@ -22,11 +22,8 @@ import (
 )
 
 func main() {
-    sequence, err := seq.Linear(1, 8, 3)
-    fmt.Println(err)
-    fmt.Println(sequence)
+    fmt.Println(seq.Linear(1, 8, 3))
     // Output:
-    // <nil>
     // [1 4 7 8]
 }
 ```

@@ -15,20 +15,12 @@ import (
 // If the step is not specified, a step of one will be used. If multiple steps are
 // specified, the first one will be used.
 //
-// If a zero or negative step is specified, an error is returned.
-func Linear[Type constraints.Integer](begin, end Type, steps ...Type) ([]Type, error) {
+// If a zero or negative step is specified, the function will panic.
+func Linear[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
 	step := Type(1)
 
 	if len(steps) != 0 {
 		step = steps[0]
-	}
-
-	if step < 0 {
-		return nil, ErrStepNegative
-	}
-
-	if step == 0 {
-		return nil, ErrStepZero
 	}
 
 	sequence := make([]Type, linearSize(begin, end, step))
@@ -42,7 +34,7 @@ func Linear[Type constraints.Integer](begin, end Type, steps ...Type) ([]Type, e
 	// of the last element equal to end must be set separately
 	sequence[len(sequence)-1] = end
 
-	return sequence, nil
+	return sequence
 }
 
 func linearSize[Type constraints.Integer](begin, end, step Type) uint64 {
@@ -65,23 +57,4 @@ func linearSize[Type constraints.Integer](begin, end, step Type) uint64 {
 	}
 
 	return size
-}
-
-// Creates a slice of a linear sequence of integers from begin to end inclusive with the
-// specified step. Like [Linear] but panics on error.
-//
-// If begin is greater than end, the returned sequence will be decreasing, otherwise it
-// will be increasing.
-//
-// If the step is not specified, a step of one will be used. If multiple steps are
-// specified, the first one will be used.
-//
-// If a zero or negative step is specified, the function will panic.
-func LinearSure[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
-	sequence, err := Linear(begin, end, steps...)
-	if err != nil {
-		panic(err)
-	}
-
-	return sequence
 }
