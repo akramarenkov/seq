@@ -50,7 +50,7 @@ func linearSize[Type constraints.Integer](begin, end, step Type) uint64 {
 	// +1 due to the constant presence of begin in the sequence
 	size++
 
-	// if the begin-end range is not a multiple of the step, then the size must be
+	// If the begin-end range is not a multiple of the step, then the size must be
 	// increased by one for store the end value
 	if remainder != 0 {
 		size++
