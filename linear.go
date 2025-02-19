@@ -1,8 +1,8 @@
 package seq
 
 import (
+	"github.com/akramarenkov/intspec"
 	"github.com/akramarenkov/safe"
-	"github.com/akramarenkov/safe/intspec"
 	"golang.org/x/exp/constraints"
 )
 
