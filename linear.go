@@ -30,7 +30,7 @@ func Linear[Type constraints.Integer](begin, end Type, steps ...Type) []Type {
 	}
 
 	// If the begin-end range is a multiple of the step, then the last element
-	// of the sequence alredy has the end value after the loop, otherwise the value
+	// of the sequence already has the end value after the loop, otherwise the value
 	// of the last element equal to end must be set separately
 	sequence[len(sequence)-1] = end
 
